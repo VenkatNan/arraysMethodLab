@@ -17,29 +17,38 @@ const inventors = [
   // Array.prototype.filter()
   // 1. Filter the array of inventors into a new array containing only the inventors born in the 1500's
   
- const oldGuys = inventors.filter(dude => dude.year < 1600)
- console.log(`1). ${oldGuys} were born in the 1600's`);
+ let oldGuys = inventors.filter(dude => dude.year < 1600)
+ console.log("Q1: ");
+ console.log(oldGuys);
   
   
   // Array.prototype.map()
   // 2. Map the array of the inventors into a new array containing objects with just the first and last names as properties
   
-  
-  
+  const name = inventors.map(dude => dude.first +' '+ dude.last)
+  console.log("Q2: ");
+  console.log(name);
   // Array.prototype.sort()
   // 3. Sort the inventors by birthdate, oldest to youngest
   
-  
+  const oldTOYOUNG =inventors.sort((old,young)=> old.year - young.year)
+  console.log("Q3: ")
+  console.log(oldTOYOUNG);
   
   // 4. Sort the inventors by years lived from shortest to longest-lived
   
-  
+  const longTaShort = inventors.sort((oloong,smol) => (oloong.passed - oloong.year ) - (smol.passed - smol.year))
+  console.log("Q4: ");
+  console.log(longTaShort);
   
   // Array.prototype.reduce()
   // 5. How many years did all the inventors live?
-  
-  
-  
+  const allYears = inventors.reduce((total, inv) => total + (inv.passed - inv.years), 0)
+//i have no idea why this doesn't work??? it worked before but doesnt now???
+  console.log("Q5: ")
+  console.log(allYears)
+ 
+  // Array.prototype.map()
   const people = [
     'Becker, Carl', 'Beckett, Samuel', 'Beddoes, Mick', 'Beecher, Henry',
     'Beethoven, Ludwig', 'Begin, Menachem', 'Belloc, Hilaire', 'Bellow, Saul',
@@ -54,22 +63,34 @@ const inventors = [
     'Blake, William'
   ];
   
-  // Array.prototype.map()
   // 6. Map the people array such that the new array consists of strings with the names formatted as "First Last", e.g., "Becker, Carl" should be mapped to "Carl Becker".
+  const nameBetter = people.map((n) =>{
+    return n.split(", ").reverse().join(' ')
+  })
+
+  console.log("Q6: ")
+  console.log(nameBetter)
   
   
   
+  // Array.prototype.reduce()
   const data = [
     'car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van',
     'bike', 'walk', 'car', 'van', 'car', 'truck'
   ];
-  
-  // Array.prototype.reduce()
   // 7. Count the number of instances for each of the data items.
   // Hint:  Return an object where the keys are 'car', 'truck', etc. and the values are the count.
+
+  // const countObj = data.reduce((acc,value) => {
+  //   value
+  // })
+
+  // console.log("Q7: ")
+  // console.log(countObj)
   
   
-  
+ 
+  // Array.prototype.some()
   const devs = [
     { name: 'Wes', year: 1988 },
     { name: 'Kait', year: 1986 },
@@ -77,16 +98,21 @@ const inventors = [
     { name: 'Lux', year: 2015 }
   ];
   
-  // Array.prototype.some()
   // 8. Check if at least one person is 19 or older?
-  
-  
+  const adult = devs.some((e) =>  2020 - e.year >= 19)
+  console.log("Q8: ")
+  console.log(adult);
   
   // Array.prototype.every()
   // 9. Check if everyone is 19 or older?
+  const adults = devs.every((a) =>  2020 - a.year >= 19)
+  console.log("Q9: ")
+  console.log(adults);
   
   
   
+  
+  // Array.prototype.find()
   const comments = [
     { text: 'Love this!', id: 523423 },
     { text: 'Super good', id: 823423 },
@@ -94,11 +120,14 @@ const inventors = [
     { text: 'Ramen is my fav food ever', id: 123523 },
     { text: 'Nice Nice Nice!', id: 542328 }
   ];
-  
-  // Array.prototype.find()
   // 10. Find the comment with the id of 823423
   
-  
+  const comms = comments.find((e)=> e.id === 823423)
+  console.log("Q10: ")
+  console.log(comms);
   
   // Array.prototype.findIndex()
   // 11. Find the index of the comment with an id of 123523
+  const indx = comments.findIndex((e)=> e.id === 123523)
+  console.log("Q11: ")
+  console.log(indx);
