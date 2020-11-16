@@ -43,7 +43,7 @@ const inventors = [
   
   // Array.prototype.reduce()
   // 5. How many years did all the inventors live?
-  const allYears = inventors.reduce((total, inv) => total + (inv.passed - inv.years), 0)
+  const allYears = inventors.reduce((total, inv) => total + (inv.passed - inv.year), 0)
 //i have no idea why this doesn't work??? it worked before but doesnt now???
   console.log("Q5: ")
   console.log(allYears)
